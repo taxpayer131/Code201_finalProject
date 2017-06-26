@@ -19,11 +19,13 @@ function initiatePlayers (a) {
         playerInit = Player.all[i];
       }
     }
+    playerInit = new Player(playerInit);
+    console.log('I created a new player and local storage exists!');
+    playerInit.name = playerMatch;
   } else {
     playerInit = new Player(playerInit);
     console.log('I created a new player in slot');
     playerInit.name = playerMatch;
-    Player.all.push(playerInit);
   }
   return playerInit;
 }
@@ -38,6 +40,7 @@ function Player (name){
   this.winRatio = (this.wins / this.totalMatches);
   this.match = [];
   this.nemesis = [];
+  Player.all.push(this);
 }
 
 function pushStorage() {
@@ -48,7 +51,6 @@ function pushStorage() {
     Player.all = storeAll;
   }
 }
-
 
 if (localStorage.length > 0) {
   pullStorage();
