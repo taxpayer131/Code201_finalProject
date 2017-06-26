@@ -66,8 +66,28 @@ h3 {
 
 img {
   font-family: 'Press Start 2P', cursive;
-  font-size: 100;
+  float: left;
   border: 5px solid #38FEDF;
   border-radius: 5px;
+  margin-right: 10px;
   box-shadow: -1px 0 #F4459E, 0 3px #F4459E, 3px 0 #F4459E, 0 -1px #F4459E;
+}
+
+p {
+  font-size: 20px;
+  font-weight: lighter;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.aboutFont  {
+  font: 20px;
+  margin: 10px;
+  height: 200px;
+  color: #3CEB1F;
+  display: block;
+}
+
+#footer   {
+  color: #FBC12F;
 }
