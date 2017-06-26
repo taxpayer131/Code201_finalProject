@@ -8,24 +8,26 @@ function pullStorage() {
   Player.all = JSON.parse(storeAll);
 }
 
+function checkPlayers (array, value) {
+  for (var i = 0; i < array.length; i++) {
+    if (value === array[i].name) {
+      console.log('Found match');
+      return array[i];
+    }
+  }
+  return new Player(value);
+}
+
 //
 function initiatePlayers (a) {
   var playerInit;
   var playerMatch = prompt ('Enter Player ' + a + '.');
   if (Player.all.length > 0) {
-    for (var i = 0; i < Player.all.length; i++) {
-      if (playerMatch === Player.all[i].name) {
-        alert('Welcome back ' + playerMatch + '!');
-        playerInit = Player.all[i];
-      }
-    }
-    playerInit = new Player(playerInit);
-    console.log('I created a new player and local storage exists!');
-    playerInit.name = playerMatch;
+    playerInit = checkPlayers(Player.all, playerMatch);
+    console.log('I found a existing player ' + playerInit.name + ' and local storage exists!');
   } else {
-    playerInit = new Player(playerInit);
-    console.log('I created a new player in slot');
-    playerInit.name = playerMatch;
+    playerInit = new Player(playerMatch);
+    console.log('No local storage. Created a new player.');
   }
   return playerInit;
 }
@@ -60,3 +62,4 @@ if (localStorage.length > 0) {
 Player.playerOne = initiatePlayers(1);
 Player.playerTwo = initiatePlayers(2);
 pushStorage();
+pullStorage();
