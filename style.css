@@ -1,0 +1,65 @@
+ /**  {
+  border: 1px dashed orange;
+}*/
+
+body {
+  font-family: 'Press Start 2P', cursive;
+  background: black;
+  color: white;
+}
+
+h1 {
+  color: black;
+  padding-left: 10px;
+  text-shadow: -2px 0 #F4459E, 0 5px #38FEDF, 5px 0 #38FEDF, 0 -2px #F4459E;
+  width: 50%;
+  display: inline-block;
+}
+
+ul {
+  float: right;
+  display: inline;
+  margin-right: 10px;
+}
+
+#start_game {
+  display: block;
+  padding: 10px 20px 10px 20px;
+  border-radius: 5px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  font-family: 'Press Start 2P', cursive;
+  background-color: #3CEB1F;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+  box-shadow: -1px 0 white, 0 2px white, 2px 0 white, 0 -1px white;
+}
+
+#game {
+  margin: 0 auto;
+  width: 960px;
+  height: 600px;
+  display: block;
+  background: gray;
+  border: 5px solid #38FEDF;
+  border-radius: 5px;
+  box-shadow: -1px 0 #F4459E, 0 3px #F4459E, 3px 0 #F4459E, 0 -1px #F4459E;
+}
+
+h3 {
+  font-size: 20%;
+  text-align: center;
+}
+
+#blog {
+  display: block;
+  padding: 10px 20px 10px 20px;
+  border-radius: 5px;
+  margin: 0 auto;
+  margin-top: 15px;
+  margin-bottom: 30px;
+  font-family: 'Press Start 2P', cursive;
+  background-color: #3CEB1F;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+  box-shadow: -1px 0 white, 0 2px white, 2px 0 white, 0 -1px white;
+  font-size: 20%;
+}
