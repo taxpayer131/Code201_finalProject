@@ -22,6 +22,14 @@ ul {
   margin-right: 10px;
 }
 
+li  {
+  line-height: 30px;
+}
+
+header  {
+  margin-bottom: 30px;
+}
+
 #start_game {
   display: block;
   padding: 10px 20px 10px 20px;
@@ -73,8 +81,12 @@ img {
   box-shadow: -1px 0 #F4459E, 0 3px #F4459E, 3px 0 #F4459E, 0 -1px #F4459E;
 }
 
+a   {
+  color: #FBC12F;
+}
+
 p {
-  font-size: 20px;
+  font-size: 17px;
   font-weight: lighter;
   margin-top: 10px;
   margin-bottom: 30px;
