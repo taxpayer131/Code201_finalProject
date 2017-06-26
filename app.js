@@ -2,26 +2,41 @@
 
 // Pull Storage and Push storage functions are probably you data problems
 Player.all = [];
+var startGame = document.getElementById('start_game');
+
+function go(event) {
+  if (localStorage.length > 0) {
+    pullStorage();
+    console.log('I pulled Local Storage');
+  }
+  Player.playerOne = initiatePlayers(1);
+  Player.playerTwo = initiatePlayers(2);
+  pushStorage();
+  pullStorage();
+
+  // Start the game execution
+  MainLoop();
+}
 
 function pullStorage() {
   var storeAll = localStorage.getItem('all');
   Player.all = JSON.parse(storeAll);
 }
 
-function checkPlayers (array, value) {
+function checkPlayers(array, value) {
   for (var i = 0; i < array.length; i++) {
     if (value === array[i].name) {
       console.log('Found match');
+      alert('Welcome back ' + value + '.');
       return array[i];
     }
   }
   return new Player(value);
 }
 
-//
-function initiatePlayers (a) {
+function initiatePlayers(a) {
   var playerInit;
-  var playerMatch = prompt ('Enter Player ' + a + '.');
+  var playerMatch = prompt('Enter Player ' + a + '.');
   if (Player.all.length > 0) {
     playerInit = checkPlayers(Player.all, playerMatch);
     console.log('I found a existing player ' + playerInit.name + ' and local storage exists!');
@@ -33,7 +48,7 @@ function initiatePlayers (a) {
 }
 
 // returning player true/false
-function Player (name){
+function Player(name) {
   this.name = name;
   this.wins = 0;
   this.losses = 0;
@@ -54,12 +69,4 @@ function pushStorage() {
   }
 }
 
-if (localStorage.length > 0) {
-  pullStorage();
-  console.log('I pulled Local Storage');
-}
-
-Player.playerOne = initiatePlayers(1);
-Player.playerTwo = initiatePlayers(2);
-pushStorage();
-pullStorage();
+startGame.addEventListener('click', go);
