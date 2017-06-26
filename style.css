@@ -64,6 +64,10 @@ h3 {
   font-size: 20%;
 }
 
-.bio {
-  
+img {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 100;
+  border: 5px solid #38FEDF;
+  border-radius: 5px;
+  box-shadow: -1px 0 #F4459E, 0 3px #F4459E, 3px 0 #F4459E, 0 -1px #F4459E;
 }
