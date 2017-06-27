@@ -3,19 +3,56 @@
 ///////////CODE BY////////////
 ///////MAILSON MENEZES////////
 //////////////////////////////
+/////////////NOTE/////////////
+/////OG = ORIGINAL CODE///////
+///NC = NEW CODE BY RE-PONG///
+
+//OG
+// function Game() {
+//   var canvas = document.getElementById('game');
+//   this.width = canvas.width;
+//   this.height = canvas.height;
+//   this.context = canvas.getContext('2d');
+//   this.context.fillStyle = 'white';
+//   this.keys = new KeyListener();
+//   this.p1 = new Paddle(5, 0);
+//   this.p1.y = this.height / 2 - this.p1.height / 2;
+//   this.display1 = new Display(this.width / 4, 25);
+//   this.p2 = new Paddle(this.width - 5 - 2, 0);
+//   this.p2.y = this.height / 2 - this.p2.height / 2;
+//   this.display2 = new Display(this.width * 3 / 4, 25);
+//   this.ball = new Ball();
+//   this.ball.x = this.width / 2;
+//   this.ball.y = this.height / 2;
+//   this.ball.vy = Math.floor(Math.random() * 12 - 6);
+//   this.ball.vx = 7 - Math.abs(this.ball.vy);
+// }
+
+// Game.prototype.draw = function() {
+//   this.context.clearRect(0, 0, this.width, this.height);
+//   this.context.fillRect(this.width / 2, 0, 2, this.height);
+//   this.ball.draw(this.context);
+//   this.p1.draw(this.context);
+//   this.p2.draw(this.context);
+//   this.display1.draw(this.context);
+//   this.display2.draw(this.context);
+// };
+
+//NOTE NC
 function Game() {
   var canvas = document.getElementById('game');
   this.width = canvas.width;
   this.height = canvas.height;
   this.context = canvas.getContext('2d');
+  this.context.font = '100px "Press Start 2P", cursive';
   this.context.fillStyle = 'white';
   this.keys = new KeyListener();
-  this.p1 = new Paddle(5, 0);
+  this.p1 = new Paddle(2, 0);
   this.p1.y = this.height / 2 - this.p1.height / 2;
-  this.display1 = new Display(this.width / 4, 25);
+  this.display1 = new Display(this.width / 8, this.height - 20);
   this.p2 = new Paddle(this.width - 5 - 2, 0);
   this.p2.y = this.height / 2 - this.p2.height / 2;
-  this.display2 = new Display(this.width * 3 / 4, 25);
+  this.display2 = new Display(this.width * 5 / 8, this.height - 20);
   this.ball = new Ball();
   this.ball.x = this.width / 2;
   this.ball.y = this.height / 2;
@@ -25,18 +62,32 @@ function Game() {
 Game.prototype.draw = function() {
   this.context.clearRect(0, 0, this.width, this.height);
   this.context.fillRect(this.width / 2, 0, 2, this.height);
-  this.ball.draw(this.context);
+  this.context.save();
+  this.context.fillStyle = '#3CEB1F';
   this.p1.draw(this.context);
+  this.context.restore();
+  this.context.save();
+  this.context.fillStyle = '#A114F2';
   this.p2.draw(this.context);
+  this.context.restore();
+  this.context.save();
+  this.context.fillStyle = 'black';
   this.display1.draw(this.context);
   this.display2.draw(this.context);
+  this.context.restore();
+  this.ball.draw(this.context);
 };
+
+//NOTE NC
 Game.prototype.update = function() {
-  if (this.paused)
+  if (game.p1.score === 9 || game.p2.score === 9) {
+    this.display1.value = this.p1.score;
+    this.display2.value = this.p2.score;
     return;
-  this.ball.update();
-  this.display1.value = this.p1.score;
-  this.display2.value = this.p2.score;
+  } else {this.display1.value = this.p1.score;
+    this.display2.value = this.p2.score;
+    this.ball.update();
+  }
   // To which Y direction the paddle is moving
   if (this.keys.isPressed(83)) { // DOWN
     this.p1.y = Math.min(this.height - this.p1.height, this.p1.y + 4);
@@ -84,18 +135,39 @@ Game.prototype.update = function() {
   else if (this.ball.x + this.ball.width <= 0)
     this.score(this.p2);
 };
+// OG
+// Game.prototype.score = function(p) {
+//   // player scores
+//   p.score++;
+//   var player = p == this.p1 ? 0 : 1;
+//   // set ball position
+//   this.ball.x = this.width / 2;
+//   this.ball.y = p.y + p.height / 2;
+//   // set ball velocity
+//   this.ball.vy = Math.floor(Math.random() * 12 - 6);
+//   this.ball.vx = 7 - Math.abs(this.ball.vy);
+//   if (player == 1)
+//     this.ball.vx *= -1;
+// };
+//////New Score function/////
+////////by RePong team///////
+/////////////////////////////
+///Ball resets on far side///
+//////instead of middle//////
 Game.prototype.score = function(p) {
   // player scores
   p.score++;
   var player = p == this.p1 ? 0 : 1;
   // set ball position
-  this.ball.x = this.width / 2;
+  this.ball.x = 5;
   this.ball.y = p.y + p.height / 2;
   // set ball velocity
   this.ball.vy = Math.floor(Math.random() * 12 - 6);
   this.ball.vx = 7 - Math.abs(this.ball.vy);
-  if (player == 1)
+  if (player == 1){
+    this.ball.x = this.width - 10;
     this.ball.vx *= -1;
+  }
 };
 // PADDLE
 function Paddle(x, y) {
@@ -154,11 +226,13 @@ KeyListener.prototype.addKeyPressListener = function(keyCode, callback) {
       callback(e);
   });
 };
+
 // Initialize our game instance
+
 var game = new Game();
 function MainLoop() {
   game.update();
   game.draw();
-  // Call the main loop again at a frame rate of 30fps
+// Call the main loop again at a frame rate of 30fps
   setTimeout(MainLoop, 33.3333);
 }

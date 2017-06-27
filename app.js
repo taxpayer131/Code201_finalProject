@@ -4,10 +4,18 @@
 Player.all = [];
 var startGame = document.getElementById('start_game');
 
+function updatePlayerArray(playerOneOrTwo) {
+  for (var i = 0; i < Player.all.length; i++) {
+    if (playerOneOrTwo.name === Player.all[i].name) {
+      console.log('Found player to update');
+      Player.all[i] = playerOneOrTwo;
+    }
+  }
+}
+
 function go(event) {
   if (localStorage.length > 0) {
     pullStorage();
-    console.log('I pulled Local Storage');
   }
   Player.playerOne = initiatePlayers(1);
   Player.playerTwo = initiatePlayers(2);
@@ -16,6 +24,26 @@ function go(event) {
 
   // Start the game execution
   MainLoop();
+  endResults();
+  updatePlayerArray(Player.playerOne);
+  updatePlayerArray(Player.playerTwo);
+  pushStorage();
+}
+
+  // return new Player(value);
+//
+function endResults() {
+  if(game.p1.score > game.p2.score) {
+    Player.playerOne.wins++;
+    Player.playerTwo.losses++;
+    Player.playerOne.totalMatches++;
+    Player.playerTwo.totalMatches++;
+  } else {
+    Player.playerTwo.wins++;
+    Player.playerOne.losses++;
+    Player.playerOne.totalMatches++;
+    Player.playerTwo.totalMatches++;
+  }
 }
 
 function pullStorage() {
@@ -53,7 +81,7 @@ function Player(name) {
   this.wins = 0;
   this.losses = 0;
   this.totalMatches = 0;
-  this.returning = false;
+  // this.returning = false;
   this.winRatio = (this.wins / this.totalMatches);
   this.match = [];
   this.nemesis = [];
