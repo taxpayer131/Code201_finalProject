@@ -81,6 +81,10 @@ img {
   box-shadow: -1px 0 #F4459E, 0 3px #F4459E, 3px 0 #F4459E, 0 -1px #F4459E;
 }
 
+button:hover {
+    color: #FF00FF;
+}
+
 a   {
   color: #FBC12F;
 }
