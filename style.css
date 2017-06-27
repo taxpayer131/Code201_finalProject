@@ -53,9 +53,37 @@ header  {
   box-shadow: -1px 0 #F4459E, 0 3px #F4459E, 3px 0 #F4459E, 0 -1px #F4459E;
 }
 
+#playerboard {
+  border: 5px solid #38FEDF;
+  border-radius: 5px;
+  box-shadow: -1px 0 #F4459E, 0 3px #F4459E, 3px 0 #F4459E, 0 -1px #F4459E;
+}
+
 h3 {
   font-size: 20%;
   text-align: center;
+}
+
+article {
+  /*display: inline-block;*/
+  float: left;
+  width: 50%;
+  border: 5px solid #38FEDF;
+  border-radius: 5px;
+  box-shadow: -1px 0 #F4459E, 0 3px #F4459E, 3px 0 #F4459E, 0 -1px #F4459E;
+}
+
+article h1 {
+  color: black;
+  padding-left: 10px;
+  float: left;
+  text-shadow: -2px 0 #F4459E, 0 5px #38FEDF, 5px 0 #38FEDF, 0 -2px #F4459E;
+  width: 100%;
+  display: inline-block;
+}
+
+article ul {
+  float: left;
 }
 
 #blog {
