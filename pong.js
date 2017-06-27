@@ -173,7 +173,7 @@ Game.prototype.score = function(p) {
 function Paddle(x, y) {
   this.x = x;
   this.y = y;
-  this.width = 2;
+  this.width = 5;
   this.height = 28;
   this.score = 0;
 }
