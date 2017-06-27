@@ -8,7 +8,7 @@ function Player (name){
   this.losses = 0;
   this.totalMatches = 0;
   this.returning = false;
-  this.winRatio = (this.wins / this.totalMatches);
+  this.winRatio = 0;
   this.match = [];
   this.nemesis = [];
   Player.all.push(this);

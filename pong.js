@@ -80,7 +80,7 @@ Game.prototype.draw = function() {
 
 //NOTE NC
 Game.prototype.update = function() {
-  if (game.p1.score === 9 || game.p2.score === 9) {
+  if (game.p1.score === 1 || game.p2.score === 1) {
     this.display1.value = this.p1.score;
     this.display2.value = this.p2.score;
     return;
