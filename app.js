@@ -23,6 +23,8 @@ function go(event) {
   pullStorage();
 
   // Start the game execution
+  game.p1.score = 0;
+  game.p2.score = 0;
   MainLoop();
   endResults();
   updatePlayerArray(Player.playerOne);
