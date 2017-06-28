@@ -19,8 +19,6 @@ function go(event) {
   }
   Player.playerOne = initiatePlayers(1);
   Player.playerTwo = initiatePlayers(2);
-  pushStorage();
-  pullStorage();
 
   // Start the game execution
   game.p1.score = 0;
@@ -37,18 +35,18 @@ function go(event) {
 function endResults() {
   console.log('this score of p1 is' + game.p1.score);
   console.log('this score of p2 is' + game.p2.score);
+  Player.playerOne.totalMatches++;
+  Player.playerTwo.totalMatches++;
   if(game.p1.score > game.p2.score) {
     console.log('P1 score is > p2 score');
     Player.playerOne.wins++;
     Player.playerTwo.losses++;
-    Player.playerOne.totalMatches++;
-    Player.playerTwo.totalMatches++;
   } else {
     Player.playerTwo.wins++;
     Player.playerOne.losses++;
-    Player.playerOne.totalMatches++;
-    Player.playerTwo.totalMatches++;
   }
+  Player.playerOne.winRatio = (Player.playerOne.wins / Player.playerOne.totalMatches);
+  Player.playerTwo.winRatio = (Player.playerTwo.wins / Player.playerTwo.totalMatches);
 }
 
 function pullStorage() {
@@ -87,7 +85,7 @@ function Player(name) {
   this.losses = 0;
   this.totalMatches = 0;
   // this.returning = false;
-  this.winRatio = (this.wins / this.totalMatches);
+  this.winRatio = 0;
   this.match = [];
   this.nemesis = [];
   Player.all.push(this);
