@@ -80,9 +80,7 @@ Game.prototype.draw = function() {
 
 //NOTE NC
 Game.prototype.update = function() {
-  if (game.p1.score === 9 || game.p2.score === 9) {
-    this.display1.value = this.p1.score;
-    this.display2.value = this.p2.score;
+  if (this.pause){
     return;
   } else {this.display1.value = this.p1.score;
     this.display2.value = this.p2.score;
@@ -231,8 +229,18 @@ KeyListener.prototype.addKeyPressListener = function(keyCode, callback) {
 
 var game = new Game();
 function MainLoop() {
+  if ((game.p1.score === 1) || (game.p2.score === 1)){
+    console.log('returning mainloop')
+    endResults();
+    updatePlayerArray(Player.playerOne);
+    updatePlayerArray(Player.playerTwo);
+    pushStorage();
+    return;
+  } else {
+    console.log('rendering and updating live game')
   game.update();
   game.draw();
 // Call the main loop again at a frame rate of 30fps
   setTimeout(MainLoop, 33.3333);
+}
 }

@@ -26,16 +26,19 @@ function go(event) {
   game.p1.score = 0;
   game.p2.score = 0;
   MainLoop();
-  endResults();
-  updatePlayerArray(Player.playerOne);
-  updatePlayerArray(Player.playerTwo);
-  pushStorage();
+  // endResults();
+  // updatePlayerArray(Player.playerOne);
+  // updatePlayerArray(Player.playerTwo);
+  // pushStorage();
 }
 
   // return new Player(value);
 //
 function endResults() {
+  console.log('this score of p1 is' + game.p1.score);
+  console.log('this score of p2 is' + game.p2.score);
   if(game.p1.score > game.p2.score) {
+    console.log('P1 score is > p2 score');
     Player.playerOne.wins++;
     Player.playerTwo.losses++;
     Player.playerOne.totalMatches++;
