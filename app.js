@@ -32,11 +32,16 @@ function updatePlayerArray(playerOneOrTwo) {
 }
 
 function go(event) {
+  event.preventDefault();
+  document.getElementById('game').style.display = 'block';
+  document.getElementById('start').style.display = 'none';
   if (localStorage.length > 0) {
     pullStorage();
   }
-  Player.playerOne = initiatePlayers(1);
-  Player.playerTwo = initiatePlayers(2);
+  var getpone = event.target.playerone.value;
+  var getptwo = event.target.playertwo.value;
+  Player.playerOne = initiatePlayers(getpone);
+  Player.playerTwo = initiatePlayers(getptwo);
 
   // Start the game execution
   game.p1.score = 0;
@@ -97,9 +102,9 @@ function checkPlayers(array, value) {
   return new Player(value);
 }
 
-function initiatePlayers(a) {
+function initiatePlayers(val) {
   var playerInit;
-  var playerMatch = prompt('Enter Player ' + a + '.');
+  var playerMatch = val;
   if (Player.all.length > 0) {
     playerInit = checkPlayers(Player.all, playerMatch);
     console.log('I found a existing player ' + playerInit.name + ' and local storage exists!');
@@ -119,4 +124,4 @@ function pushStorage() {
   }
 }
 
-startGame.addEventListener('click', go);
+startGame.addEventListener('submit', go);

@@ -19,9 +19,26 @@
   </nav>
 </header>
 
-<button id="start_game">PLAY!</button>
 
-<canvas id="game"></canvas>
+  <canvas id="game" style="display: none;"></canvas>
+  <!--  -->
+  <article id="start">
+    <p>To start a game of Re-Pong you must add the name of Player 1 and Player 2.  Player 1 uses key-w for up and key-s for down. Player 2 uses key-up for up and key-down for down. Once you're ready to start, just click "Play!"</p>
+    <form id="start_game">
+      <fieldset>
+        <legend>Enter Player Names</legend>
+
+        <label for="playerone">Player 1: </label>
+        <input name="playerone" type="text">
+
+        <label for="playertwo">Player 2: </label>
+        <input name="playertwo" type="text">
+
+        <button id="button" type="submit">PLAY!</button>
+      </fieldset>
+    </form>
+  </article>
+
 
 <h3>Original Pong code written by Mailson Daniel Lira Menezes.</h3>
 <button id="blog"><a href="http://blog.mailson.org/2013/02/simple-pong-game-using-html5-and-canvas/#read-more" target="_blank">Check out his tutorial.</a></button>
