@@ -4,6 +4,24 @@
 Player.all = [];
 var startGame = document.getElementById('start_game');
 
+function Player(name) {
+  this.name = name;
+  this.wins = 0;
+  this.losses = 0;
+  this.totalMatches = 0;
+  this.winRatio = 0;
+  this.match = [];
+  this.nemesis = [];
+  Player.all.push(this);
+}
+
+function Match(winner,loser) {
+  this.winner = winner;
+  this.loser = loser;
+  this.winnerScore = 5;
+  this.loserScore = 0;
+}
+
 function updatePlayerArray(playerOneOrTwo) {
   for (var i = 0; i < Player.all.length; i++) {
     if (playerOneOrTwo.name === Player.all[i].name) {
@@ -50,12 +68,21 @@ function endResults() {
     console.log('P1 score is > p2 score');
     Player.playerOne.wins++;
     Player.playerTwo.losses++;
+    matchMaker(Player.playerOne.name, Player.playerTwo.name, game.p2.score);
   } else {
     Player.playerTwo.wins++;
     Player.playerOne.losses++;
+    matchMaker(Player.playerTwo.name, Player.playerOne.name, game.p1.score);
   }
   Player.playerOne.winRatio = (Player.playerOne.wins / Player.playerOne.totalMatches);
   Player.playerTwo.winRatio = (Player.playerTwo.wins / Player.playerTwo.totalMatches);
+}
+
+function matchMaker(winner,loser, loserScore) {
+  var match = new Match(winner, loser);
+  match.loserScore = loserScore;
+  Player.playerOne.match.push(match);
+  Player.playerTwo.match.push(match);
 }
 
 function pullStorage() {
@@ -85,19 +112,6 @@ function initiatePlayers(a) {
     console.log('No local storage. Created a new player.');
   }
   return playerInit;
-}
-
-// returning player true/false
-function Player(name) {
-  this.name = name;
-  this.wins = 0;
-  this.losses = 0;
-  this.totalMatches = 0;
-  // this.returning = false;
-  this.winRatio = 0;
-  this.match = [];
-  this.nemesis = [];
-  Player.all.push(this);
 }
 
 function pushStorage() {

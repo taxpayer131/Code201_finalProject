@@ -50,7 +50,7 @@ function Game() {
   this.p1 = new Paddle(2, 0);
   this.p1.y = this.height / 2 - this.p1.height / 2;
   this.display1 = new Display(this.width / 8, this.height - 20);
-  this.p2 = new Paddle(this.width - 5 - 2, 0);
+  this.p2 = new Paddle2(this.width - 2, 0);
   this.p2.y = this.height / 2 - this.p2.height / 2;
   this.display2 = new Display(this.width * 5 / 8, this.height - 20);
   this.ball = new Ball();
@@ -106,7 +106,7 @@ Game.prototype.update = function() {
       var y = this.ball.vy * k + (this.ball.y - this.ball.vy);
       if (y >= this.p2.y && y + this.ball.height <= this.p2.y + this.p2.height) {
         // collides with right paddle
-        this.ball.x = this.p2.x - this.ball.width;
+        this.ball.x = this.p2.x - 5 - this.ball.width;
         this.ball.y = Math.floor(this.ball.y - this.ball.vy + this.ball.vy * k);
         this.ball.vx = -this.ball.vx;
       }
@@ -179,6 +179,17 @@ function Paddle(x, y) {
 Paddle.prototype.draw = function(p) {
   p.fillRect(this.x, this.y, this.width, this.height);
 };
+
+function Paddle2(x, y) {
+  this.x = x;
+  this.y = y;
+  this.width = -5;
+  this.height = 28;
+  this.score = 0;
+}
+Paddle2.prototype.draw = function(p) {
+  p.fillRect(this.x, this.y, this.width, this.height);
+};
 // BALL
 function Ball() {
   this.x = 0;
@@ -231,7 +242,7 @@ KeyListener.prototype.addKeyPressListener = function(keyCode, callback) {
 var game = new Game();
 
 function MainLoop() {
-  if ((game.p1.score === 1) || (game.p2.score === 1)) {
+  if ((game.p1.score === 5) || (game.p2.score === 5)) {
     console.log('returning mainloop');
     game.update();
     game.draw();
