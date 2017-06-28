@@ -51,10 +51,6 @@ function go(event) {
   }, false);
   //////////////////////////////////////////
   MainLoop();
-  // endResults();
-  // updatePlayerArray(Player.playerOne);
-  // updatePlayerArray(Player.playerTwo);
-  // pushStorage();
 }
 
   // return new Player(value);

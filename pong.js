@@ -78,6 +78,22 @@ Game.prototype.draw = function() {
   this.ball.draw(this.context);
 };
 
+// NOTE css
+
+function randomizeBackgroundPicture() {
+  var backgrounds = [];
+  var randomizeBackground = backgrounds[Math.floor(Math.random() * backgrounds.length)];
+  document.getElementById('game').style.backgroundImage = randomizeBackground;
+
+}
+
+function randomizeBackground() {
+  var backgrounds = ['#FB4D53', '#18C1FF', '#FFFF88', randomizeBackgroundPicture()];
+  var randomizeBackground = backgrounds[Math.floor(Math.random() * backgrounds.length)];
+  document.getElementById('game').style.background = randomizeBackground;
+
+}
+
 //NOTE NC
 Game.prototype.update = function() {
   if (this.pause) {
@@ -109,6 +125,7 @@ Game.prototype.update = function() {
         this.ball.x = this.p2.x - 5 - this.ball.width;
         this.ball.y = Math.floor(this.ball.y - this.ball.vy + this.ball.vy * k);
         this.ball.vx = -this.ball.vx;
+        randomizeBackground()
       }
     }
   } else {
@@ -121,6 +138,7 @@ Game.prototype.update = function() {
         this.ball.x = this.p1.x + this.p1.width;
         this.ball.y = Math.floor(this.ball.y - this.ball.vy + this.ball.vy * k);
         this.ball.vx = -this.ball.vx;
+        randomizeBackground()
       }
     }
   }
@@ -257,4 +275,20 @@ function MainLoop() {
     // Call the main loop again at a frame rate of 30fps
     setTimeout(MainLoop, 33.3333);
   }
+}
+
+// NOTE css
+
+function randomizeBackgroundPicture() {
+  var backgrounds = ['url(bckimg/space.jpg)', 'url(bckimg/spaceShips.jpeg)'];
+  var randomizeBackground = backgrounds[Math.floor(Math.random() * backgrounds.length)];
+  document.getElementById('game').style.backgroundImage = randomizeBackground;
+
+}
+
+function randomizeBackground() {
+  var backgrounds = ['red', 'blue', 'orange', randomizeBackgroundPicture()];
+  var randomizeBackground = backgrounds[Math.floor(Math.random() * backgrounds.length)];
+  document.getElementById('game').style.background = randomizeBackground;
+
 }
