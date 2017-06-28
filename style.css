@@ -5,7 +5,11 @@
 body {
   font-family: 'Press Start 2P', cursive;
   background-image: url('img/barScreen.png');
+  /*background-repeat: no-repeat;*/
+  background-size: 1200px;
   color: white;
+  width: 70%;
+  margin: auto;
 }
 
 h1 {
@@ -14,12 +18,17 @@ h1 {
   text-shadow: -2px 0 #F4459E, 0 5px #38FEDF, 5px 0 #38FEDF, 0 -2px #F4459E;
   width: 50%;
   display: inline-block;
+  /*font-size: 3em;*/
 }
 
 ul {
   float: right;
   display: inline;
   margin-right: 10px;
+}
+
+a {
+  text-decoration: none;
 }
 
 li  {
@@ -30,7 +39,7 @@ header  {
   margin-bottom: 30px;
 }
 
-#start_game {
+#button {
   display: block;
   padding: 10px 20px 10px 20px;
   border-radius: 5px;
@@ -53,25 +62,46 @@ header  {
   box-shadow: -1px 0 #F4459E, 0 3px #F4459E, 3px 0 #F4459E, 0 -1px #F4459E;
 }
 
-#playerboard {
-  /*border: 5px solid #38FEDF;
+#start {
+  margin: auto;
+  float: none;
+}
+
+label {
+  display: block;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+input {
+    display: block;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+div {
+  background-color: black;
+  border: 5px solid #38FEDF;
   border-radius: 5px;
-  box-shadow: -1px 0 #F4459E, 0 3px #F4459E, 3px 0 #F4459E, 0 -1px #F4459E;*/
+  margin-right: 10px;
+  box-shadow: -1px 0 #F4459E, 0 3px #F4459E, 3px 0 #F4459E, 0 -1px #F4459E;
 }
 
 h3 {
-  font-size: 20%;
+  font-size: 100%;
   text-align: center;
 }
 
 article {
   /*display: inline-block;*/
+  /*margin: auto;*/
   float: left;
   width: 50%;
   margin-bottom: 20px;
   border: 5px solid #38FEDF;
   border-radius: 5px;
   box-shadow: -1px 0 #F4459E, 0 3px #F4459E, 3px 0 #F4459E, 0 -1px #F4459E;
+  background-color: black;
 }
 
 article h1 {
@@ -85,6 +115,10 @@ article h1 {
 
 article ul {
   float: left;
+}
+
+section {
+  position: relative;
 }
 
 #blog {
@@ -104,10 +138,7 @@ article ul {
 img {
   font-family: 'Press Start 2P', cursive;
   float: left;
-  border: 5px solid #38FEDF;
-  border-radius: 5px;
-  margin-right: 10px;
-  box-shadow: -1px 0 #F4459E, 0 3px #F4459E, 3px 0 #F4459E, 0 -1px #F4459E;
+  padding-right: 20px;
 }
 
 button:hover {
