@@ -230,14 +230,14 @@ KeyListener.prototype.addKeyPressListener = function(keyCode, callback) {
 var game = new Game();
 function MainLoop() {
   if ((game.p1.score === 1) || (game.p2.score === 1)){
-    console.log('returning mainloop')
+    console.log('returning mainloop');
     endResults();
     updatePlayerArray(Player.playerOne);
     updatePlayerArray(Player.playerTwo);
     pushStorage();
     return;
   } else {
-    console.log('rendering and updating live game')
+    console.log('rendering and updating live game');
   game.update();
   game.draw();
 // Call the main loop again at a frame rate of 30fps
