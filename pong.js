@@ -80,9 +80,10 @@ Game.prototype.draw = function() {
 
 //NOTE NC
 Game.prototype.update = function() {
-  if (this.pause){
+  if (this.pause) {
     return;
-  } else {this.display1.value = this.p1.score;
+  } else {
+    this.display1.value = this.p1.score;
     this.display2.value = this.p2.score;
     this.ball.update();
   }
@@ -162,7 +163,7 @@ Game.prototype.score = function(p) {
   // set ball velocity
   this.ball.vy = Math.floor(Math.random() * 12 - 6);
   this.ball.vx = 7 - Math.abs(this.ball.vy);
-  if (player == 1){
+  if (player == 1) {
     this.ball.x = this.width - 10;
     this.ball.vx *= -1;
   }
@@ -228,19 +229,21 @@ KeyListener.prototype.addKeyPressListener = function(keyCode, callback) {
 // Initialize our game instance
 
 var game = new Game();
+
 function MainLoop() {
-  if ((game.p1.score === 1) || (game.p2.score === 1)){
+  if ((game.p1.score === 1) || (game.p2.score === 1)) {
     console.log('returning mainloop');
+    game.update();
+    game.draw();
     endResults();
     updatePlayerArray(Player.playerOne);
     updatePlayerArray(Player.playerTwo);
     pushStorage();
     return;
   } else {
-    console.log('rendering and updating live game');
-  game.update();
-  game.draw();
-// Call the main loop again at a frame rate of 30fps
-  setTimeout(MainLoop, 33.3333);
-}
+    game.update();
+    game.draw();
+    // Call the main loop again at a frame rate of 30fps
+    setTimeout(MainLoop, 33.3333);
+  }
 }
