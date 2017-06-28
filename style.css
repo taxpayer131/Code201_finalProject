@@ -4,7 +4,7 @@
 
 body {
   font-family: 'Press Start 2P', cursive;
-  background: black;
+  background-image: url('img/barScreen.png');
   color: white;
 }
 
