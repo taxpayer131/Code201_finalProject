@@ -24,6 +24,10 @@ header div ul li {
       list-style-type: none;
 }
 
+header nav ul li {
+      list-style-type: none;
+}
+
 ul {
   float: right;
   display: inline;
@@ -46,7 +50,7 @@ header {
   margin-bottom: 30px;
 }
 
-header a {
+li a {
   color: orange;
 }
 

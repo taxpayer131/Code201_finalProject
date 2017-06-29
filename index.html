@@ -11,40 +11,32 @@
 <body>
 <header>
   <nav>
-    <h1>Re-Pong!</h1>
+    <h1><a href="index.html">Re-Pong</a>!</h1>
     <ul>
       <li><a href="about.html">About</a></li>
       <li><a href="leaderboard.html">Leaderboard</a></li>
     </ul>
   </nav>
 </header>
-
-
-  <canvas id="game" style="display: none;"></canvas>
-  <!--  -->
-  <article id="start">
-    <img/>
-    <img/>
-    <form id="start_game">
-      <fieldset>
-        <!-- <div id="first"> -->
-          <legend>Enter Player Names</legend>
-          <br>
-          <label for="playerone"></label>
-          <input name="playerone" type="text" placeholder="Player 1">
-          <!-- <img id="arrowKeysImg"src="img/P2Commands.png"/> -->
-          <label for="playertwo"></label>
-          <input name="playertwo" type="text" placeholder="Player 2">
-          <button id="button" type="submit">PLAY!</button>
-          <h1>Ctrls</h1>
-          <p>P1: W and S</p>
-          <p>P2: <span>&#8673</span> and <span>&#8675</span></p>
-        <!-- </div>
-        <div id="second">
-        </div> -->
-      </fieldset>
-    </form>
-  </article>
+<canvas id="game" style="display: none;"></canvas>
+<article id="start">
+  <img/>
+  <img/>
+  <form id="start_game">
+    <fieldset>
+      <legend>Enter Player Names</legend>
+      <br>
+      <label for="playerone"></label>
+      <input name="playerone" type="text" placeholder="Player 1">
+      <label for="playertwo"></label>
+      <input name="playertwo" type="text" placeholder="Player 2">
+      <button id="button" type="submit">PLAY!</button>
+      <h1>Ctrls</h1>
+      <p>P1: W and S</p>
+      <p>P2: <span>&#8673</span> and <span>&#8675</span></p>
+    </fieldset>
+  </form>
+</article>
 <footer>
   <h3>Original Pong code written by Mailson Daniel Lira Menezes.</h3>
   <button id="blog"><a href="http://blog.mailson.org/2013/02/simple-pong-game-using-html5-and-canvas/#read-more" target="_blank">Check out his tutorial.</a></button>
