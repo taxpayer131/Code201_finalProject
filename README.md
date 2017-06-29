@@ -10,8 +10,7 @@ The object of the game is for the two players to "hit" the ball back and forth i
 
 To begin the game, a user (or users) navigates to the Re-Pong! website and enters a name for Player One and Player Two. The user then clicks on "Play".  Player One moves their paddle up and down using the up and down arrows, respectively, on the keyboard.  Player Two moves their paddle up and down with the "W" and "S" keys, respectively.
 
-After the game ends, the user clicks on the Leaderboard link in the top right-hand corner of the main game page 
-
+After the game ends, the user clicks on the Leaderboard link in the top right-hand corner of the main game page to see their player card which consists of player cards detailing each player's wins, losses, total matches played, win ratio (wins divided by total matches played), the nemesis (the player outside of the card who has defeated the player most), and a button for the player's complete match history.  Each match history has the opponent's name, the match score, and how many points each player scored in the match.
 
 Design Decisions & Project Issues:
 Need help with this.
@@ -30,4 +29,4 @@ Want to contribute? Great! Send us a private message through the GitHub reposito
 
 Testing
 
-The site was tested on three web browsers: Chrome, Safari, and Firefox. The site was fully functional as of the writing of this README.
+The site was tested on three web browsers: Chrome (console tool), Safari, and Firefox. The site was fully functional as of the writing of this README.
