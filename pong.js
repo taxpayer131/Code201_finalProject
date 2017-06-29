@@ -47,10 +47,10 @@ function Game() {
   this.context.font = '100px "Press Start 2P", cursive';
   this.context.fillStyle = 'white';
   this.keys = new KeyListener();
-  this.p1 = new Paddle(2, 0);
+  this.p1 = new Paddle(5, 0);
   this.p1.y = this.height / 2 - this.p1.height / 2;
   this.display1 = new Display(this.width / 8, this.height - 20);
-  this.p2 = new Paddle2(this.width - 2, 0);
+  this.p2 = new Paddle2(this.width - 5, 0);
   this.p2.y = this.height / 2 - this.p2.height / 2;
   this.display2 = new Display(this.width * 5 / 8, this.height - 20);
   this.ball = new Ball();
@@ -63,11 +63,11 @@ Game.prototype.draw = function() {
   this.context.clearRect(0, 0, this.width, this.height);
   this.context.fillRect(this.width / 2, 0, 2, this.height);
   this.context.save();
-  this.context.fillStyle = '#3CEB1F';
+  this.context.fillStyle = '#00ff98';
   this.p1.draw(this.context);
   this.context.restore();
   this.context.save();
-  this.context.fillStyle = '#A114F2';
+  this.context.fillStyle = '#9934ff';
   this.p2.draw(this.context);
   this.context.restore();
   this.context.save();
@@ -88,10 +88,9 @@ function randomizeBackgroundPicture() {
 }
 
 function randomizeBackground() {
-  var backgrounds = ['#FB4D53', '#18C1FF', '#FFFF88', randomizeBackgroundPicture()];
-  var randomizeBackground = backgrounds[Math.floor(Math.random() * backgrounds.length)];
-  document.getElementById('game').style.background = randomizeBackground;
-
+  var backgrounds = ['#ff6666', 'rgb(24,193,255)', 'rgb(255,255,136)','#6f6f6f'];
+  var randBack = backgrounds[Math.floor(Math.random() * backgrounds.length)];
+  document.getElementById('game').style.background = randBack;
 }
 
 //NOTE NC
@@ -115,17 +114,16 @@ Game.prototype.update = function() {
     this.p2.y = Math.max(0, this.p2.y - 4);
   }
   if (this.ball.vx > 0) {
-    if (this.p2.x <= this.ball.x + this.ball.width &&
-      this.p2.x > this.ball.x - this.ball.vx + this.ball.width) {
+    if (this.p2.x + this.p2.width <= this.ball.x) {
       var collisionDiff = this.ball.x + this.ball.width - this.p2.x;
       var k = collisionDiff / this.ball.vx;
       var y = this.ball.vy * k + (this.ball.y - this.ball.vy);
       if (y >= this.p2.y && y + this.ball.height <= this.p2.y + this.p2.height) {
         // collides with right paddle
-        this.ball.x = this.p2.x - 5 - this.ball.width;
+        this.ball.x = this.p2.x + this.p2.width - this.ball.width;
         this.ball.y = Math.floor(this.ball.y - this.ball.vy + this.ball.vy * k);
         this.ball.vx = -this.ball.vx;
-        randomizeBackground()
+        randomizeBackground();
       }
     }
   } else {
@@ -138,7 +136,7 @@ Game.prototype.update = function() {
         this.ball.x = this.p1.x + this.p1.width;
         this.ball.y = Math.floor(this.ball.y - this.ball.vy + this.ball.vy * k);
         this.ball.vx = -this.ball.vx;
-        randomizeBackground()
+        randomizeBackground();
       }
     }
   }
@@ -191,7 +189,7 @@ function Paddle(x, y) {
   this.x = x;
   this.y = y;
   this.width = 5;
-  this.height = 28;
+  this.height = 30;
   this.score = 0;
 }
 Paddle.prototype.draw = function(p) {
@@ -202,7 +200,7 @@ function Paddle2(x, y) {
   this.x = x;
   this.y = y;
   this.width = -5;
-  this.height = 28;
+  this.height = 30;
   this.score = 0;
 }
 Paddle2.prototype.draw = function(p) {
@@ -275,20 +273,4 @@ function MainLoop() {
     // Call the main loop again at a frame rate of 30fps
     setTimeout(MainLoop, 33.3333);
   }
-}
-
-// NOTE css
-
-function randomizeBackgroundPicture() {
-  var backgrounds = ['url(bckimg/space.jpg)', 'url(bckimg/spaceShips.jpeg)'];
-  var randomizeBackground = backgrounds[Math.floor(Math.random() * backgrounds.length)];
-  document.getElementById('game').style.backgroundImage = randomizeBackground;
-
-}
-
-function randomizeBackground() {
-  var backgrounds = ['red', 'blue', 'orange', randomizeBackgroundPicture()];
-  var randomizeBackground = backgrounds[Math.floor(Math.random() * backgrounds.length)];
-  document.getElementById('game').style.background = randomizeBackground;
-
 }
