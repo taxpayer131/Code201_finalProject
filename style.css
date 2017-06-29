@@ -62,6 +62,7 @@ header  {
  width: 960px;
  height: 600px;
  display: block;
+ background-size: 960px 600px;
  background: gray;
  border: 5px solid #38FEDF;
  border-radius: 5px;
