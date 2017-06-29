@@ -90,7 +90,7 @@ Game.prototype.draw = function() {
 // NOTE css
 
 function randomizeBackgroundPicture() {
-  document.getElementById('game').style.backgroundImage = 'url(img/TeamRePONGresized.jpg)';
+  document.getElementById('game').style.backgroundImage = 'url(img/TeamRePONGresized.JPG)';
 
 }
 
