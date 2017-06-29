@@ -28,5 +28,4 @@ Development
 Want to contribute? Great! Send us a private message through the GitHub repository and we can discuss your idea(s).
 
 Testing
-
 The site was tested on three web browsers: Chrome (console tool), Safari, and Firefox. The site was fully functional as of the writing of this README.
