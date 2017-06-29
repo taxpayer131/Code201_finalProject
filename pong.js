@@ -37,6 +37,7 @@
 //   this.display1.draw(this.context);
 //   this.display2.draw(this.context);
 // };
+// Soundbank
 
 //NOTE NC
 function Game() {
@@ -89,14 +90,12 @@ Game.prototype.draw = function() {
 // NOTE css
 
 function randomizeBackgroundPicture() {
-  var backgrounds = [];
-  var randomizeBackground = backgrounds[Math.floor(Math.random() * backgrounds.length)];
-  document.getElementById('game').style.backgroundImage = randomizeBackground;
+  document.getElementById('game').style.backgroundImage = 'url(img/TeamRePONGresized.jpg)';
 
 }
 
 function randomizeBackground() {
-  var backgrounds = ['#ff6666', 'rgb(24,193,255)', 'rgb(255,255,136)', '#6f6f6f'];
+  var backgrounds = ['#ff6666', 'rgb(24,193,255)', 'rgb(255,255,136)', '#6f6f6f', randomizeBackgroundPicture()];
   var randBack = backgrounds[Math.floor(Math.random() * backgrounds.length)];
   document.getElementById('game').style.background = randBack;
 }
@@ -301,6 +300,7 @@ function MainLoop() {
     document.getElementById('start').style.display = 'inline-block';
     // document.getElementById('first').style.display = 'none';
     // document.getElementById('second').style.display = 'block';
+    teamRePongTheme.pause();
     return;
   } else {
     game.update();
