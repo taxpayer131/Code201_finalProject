@@ -18,7 +18,7 @@ function Player(name) {
 function Match(winner,loser) {
   this.winner = winner;
   this.loser = loser;
-  this.winnerScore = 5;
+  this.winnerScore = 9;
   this.loserScore = 0;
 }
 
@@ -35,6 +35,7 @@ function go(event) {
   event.preventDefault();
   document.getElementById('game').style.display = 'block';
   document.getElementById('start').style.display = 'none';
+  // document.getElementById('second').style.display = 'none';
   if (localStorage.length > 0) {
     pullStorage();
   }
@@ -84,6 +85,7 @@ function matchMaker(winner,loser, loserScore) {
   match.loserScore = loserScore;
   Player.playerOne.match.push(match);
   Player.playerTwo.match.push(match);
+  lastMatch(Player.playerOne);
 }
 
 function pullStorage() {
@@ -122,6 +124,17 @@ function pushStorage() {
   if (localStorage.all) {
     Player.all = storeAll;
   }
+}
+
+function lastMatch(player) {
+  var i = player.match.length - 1;
+  playerCard('start', 'div', player.name + i);
+  playerCard(player.name + i, 'h1', '', player.match[i].winner + ' VS ' + player.match[i].loser);
+  playerCard(player.name + i, 'ul', player.name + i + '_stats');
+  playerCard(player.name + i + '_stats', 'li', '', 'Winner: ' + player.match[i].winner);
+  playerCard(player.name + i + '_stats', 'li', '', 'Loser: ' + player.match[i].loser);
+  playerCard(player.name + i + '_stats', 'li', '', player.match[i].winner + ': ' + player.match[i].winnerScore);
+  playerCard(player.name + i + '_stats', 'li', '', player.match[i].loser + ': ' + player.match[i].loserScore);
 }
 
 startGame.addEventListener('submit', go);

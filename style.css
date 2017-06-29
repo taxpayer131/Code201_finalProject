@@ -20,6 +20,10 @@ h1 {
   font-size: 2em;
 }
 
+header div ul li {
+      list-style-type: none;
+}
+
 ul {
   float: right;
   display: inline;
