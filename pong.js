@@ -89,12 +89,14 @@ Game.prototype.draw = function() {
 // NOTE css
 
 function randomizeBackgroundPicture() {
-  document.getElementById('game').style.backgroundImage = 'url(img/TeamRePONGresized.jpg)';
+  var backgrounds = [];
+  var randomizeBackground = backgrounds[Math.floor(Math.random() * backgrounds.length)];
+  document.getElementById('game').style.backgroundImage = randomizeBackground;
 
 }
 
 function randomizeBackground() {
-  var backgrounds = ['#ff6666', 'rgb(24,193,255)', 'rgb(255,255,136)', '#6f6f6f', randomizeBackgroundPicture()];
+  var backgrounds = ['#ff6666', 'rgb(24,193,255)', 'rgb(255,255,136)', '#6f6f6f'];
   var randBack = backgrounds[Math.floor(Math.random() * backgrounds.length)];
   document.getElementById('game').style.background = randBack;
 }
@@ -263,10 +265,18 @@ KeyListener.prototype.addKeyPressListener = function(keyCode, callback) {
 
 // Initialize our game instance
 
+function playerCard(parent, type, id, content) {
+  var board = document.getElementById(parent);
+  var el = document.createElement(type);
+  el.id = id;
+  el.textContent = content;
+  board.appendChild(el);
+}
+
 var game = new Game();
 
 function MainLoop() {
-  if ((game.p1.score === 9) || (game.p2.score === 9)) {
+  if ((game.p1.score === 1) || (game.p2.score === 1)) {
     console.log('returning mainloop');
     game.update();
     game.draw();
@@ -274,6 +284,11 @@ function MainLoop() {
     updatePlayerArray(Player.playerOne);
     updatePlayerArray(Player.playerTwo);
     pushStorage();
+    document.getElementById('start_game').style.display = 'none';
+    document.getElementById('game').style.display = 'none';
+    document.getElementById('start').style.display = 'inline-block';
+    // document.getElementById('first').style.display = 'none';
+    // document.getElementById('second').style.display = 'block';
     return;
   } else {
     game.update();
