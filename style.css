@@ -190,6 +190,10 @@ p {
   margin-bottom: 30px;
 }
 
+p a {
+  color: white;
+}
+
 .aboutFont {
   background-color: black;
   border: 5px solid #38FEDF;
