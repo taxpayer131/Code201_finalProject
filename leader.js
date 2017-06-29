@@ -74,7 +74,7 @@ function buildLeader() {
     playerCard(Player.all[i].name + '_stats', 'li', '', 'Wins: ' + Player.all[i].wins);
     playerCard(Player.all[i].name + '_stats', 'li', '', 'Losses: ' + Player.all[i].losses);
     playerCard(Player.all[i].name + '_stats', 'li', '', 'Total: ' + Player.all[i].totalMatches);
-    playerCard(Player.all[i].name + '_stats', 'li', '', 'Win Ratio: ' + Player.all[i].winRatio);
+    playerCard(Player.all[i].name + '_stats', 'li', '', 'Win Ratio: ' + (parseInt(Player.all[i].winRatio * 100)) + '%');
     playerCard(Player.all[i].name + '_stats', 'li', '', 'Nemesis: ' + Player.all[i].nemesis);
     buttonUp(Player.all[i].name,getMatches);
   }
