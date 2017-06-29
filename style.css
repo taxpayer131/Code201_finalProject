@@ -59,7 +59,7 @@ li a {
   padding: 10px 20px 10px 20px;
   border-radius: 5px;
   margin: 0 auto;
-  margin-bottom: 10px;
+  margin-top:20px;
   font-family: 'Press Start 2P', cursive;
   background-color: #3CEB1F;
   text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
@@ -88,20 +88,22 @@ span {
 }
 
 #start {
+  display: block;
+  height: 365px;
   margin: auto;
   float: none;
+  text-align: center;
 }
 
 label {
   display: block;
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 4px;
 }
 
 input {
   display: block;
   margin: auto;
-  margin-bottom: 20px;
 }
 
 h3 {

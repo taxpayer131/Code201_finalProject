@@ -298,7 +298,7 @@ function MainLoop() {
     pushStorage();
     document.getElementById('start_game').style.display = 'none';
     document.getElementById('game').style.display = 'none';
-    document.getElementById('start').style.display = 'inline-block';
+    document.getElementById('start').style.display = 'block';
     // document.getElementById('first').style.display = 'none';
     // document.getElementById('second').style.display = 'block';
     return;
