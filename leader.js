@@ -80,8 +80,24 @@ function buildLeader() {
   }
 }
 
+function leaderSort() {
+  console.log('sorting');
+  for (var i = 0; i < Player.all.length; i++) {
+    for (var j = i; j < Player.all.length; j++) {
+      if(Player.all[j].wins > Player.all[i].wins) {
+        var temp = Player.all[i];
+        Player.all[i] = Player.all[j];
+        Player.all[j] = temp;
+      }
+    }
+  }
+}
+
 // header();
 //
 pullStorage();
+console.table(Player.all);
+leaderSort();
+console.table(Player.all);
 buildLeader();
 // render();
