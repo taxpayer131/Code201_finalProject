@@ -59,6 +59,11 @@ function Game() {
   this.ball.vy = Math.floor(Math.random() * 12 - 6);
   this.ball.vx = 7 - Math.abs(this.ball.vy);
 }
+
+function speedUp() {
+  game.ball.vx = game.ball.vx * 1.05;
+}
+
 Game.prototype.draw = function() {
   this.context.clearRect(0, 0, this.width, this.height);
   this.context.fillRect(this.width / 2, 0, 2, this.height);
@@ -75,7 +80,10 @@ Game.prototype.draw = function() {
   this.display1.draw(this.context);
   this.display2.draw(this.context);
   this.context.restore();
+  this.context.save();
+  this.context.fillStyle = 'orange';
   this.ball.draw(this.context);
+  this.context.restore();
 };
 
 // NOTE css
@@ -88,7 +96,7 @@ function randomizeBackgroundPicture() {
 }
 
 function randomizeBackground() {
-  var backgrounds = ['#ff6666', 'rgb(24,193,255)', 'rgb(255,255,136)','#6f6f6f'];
+  var backgrounds = ['#ff6666', 'rgb(24,193,255)', 'rgb(255,255,136)', '#6f6f6f'];
   var randBack = backgrounds[Math.floor(Math.random() * backgrounds.length)];
   document.getElementById('game').style.background = randBack;
 }
@@ -114,8 +122,8 @@ Game.prototype.update = function() {
     this.p2.y = Math.max(0, this.p2.y - 4);
   }
   if (this.ball.vx > 0) {
-    if (this.p2.x + this.p2.width <= this.ball.x) {
-      var collisionDiff = this.ball.x + this.ball.width - this.p2.x;
+    if (this.p2.x + this.p2.width - this.ball.width <= this.ball.x) {
+      var collisionDiff = 1;
       var k = collisionDiff / this.ball.vx;
       var y = this.ball.vy * k + (this.ball.y - this.ball.vy);
       if (y >= this.p2.y && y + this.ball.height <= this.p2.y + this.p2.height) {
@@ -123,12 +131,13 @@ Game.prototype.update = function() {
         this.ball.x = this.p2.x + this.p2.width - this.ball.width;
         this.ball.y = Math.floor(this.ball.y - this.ball.vy + this.ball.vy * k);
         this.ball.vx = -this.ball.vx;
+        speedUp();
         randomizeBackground();
       }
     }
   } else {
     if (this.p1.x + this.p1.width >= this.ball.x) {
-      var collisionDiff = this.p1.x + this.p1.width - this.ball.x;
+      var collisionDiff = 1;
       var k = collisionDiff / -this.ball.vx;
       var y = this.ball.vy * k + (this.ball.y - this.ball.vy);
       if (y >= this.p1.y && y + this.ball.height <= this.p1.y + this.p1.height) {
@@ -136,6 +145,7 @@ Game.prototype.update = function() {
         this.ball.x = this.p1.x + this.p1.width;
         this.ball.y = Math.floor(this.ball.y - this.ball.vy + this.ball.vy * k);
         this.ball.vx = -this.ball.vx;
+        speedUp();
         randomizeBackground();
       }
     }
@@ -178,7 +188,7 @@ Game.prototype.score = function(p) {
   this.ball.y = p.y + p.height / 2;
   // set ball velocity
   this.ball.vy = Math.floor(Math.random() * 12 - 6);
-  this.ball.vx = 7 - Math.abs(this.ball.vy);
+  // this.ball.vx = 7 - Math.abs(this.ball.vy);
   if (player == 1) {
     this.ball.x = this.width - 10;
     this.ball.vx *= -1;
@@ -212,8 +222,8 @@ function Ball() {
   this.y = 0;
   this.vx = 0;
   this.vy = 0;
-  this.width = 4;
-  this.height = 4;
+  this.width = 5;
+  this.height = 5;
 }
 Ball.prototype.update = function() {
   this.x += this.vx;
@@ -258,7 +268,7 @@ KeyListener.prototype.addKeyPressListener = function(keyCode, callback) {
 var game = new Game();
 
 function MainLoop() {
-  if ((game.p1.score === 5) || (game.p2.score === 5)) {
+  if ((game.p1.score === 9) || (game.p2.score === 9)) {
     console.log('returning mainloop');
     game.update();
     game.draw();
