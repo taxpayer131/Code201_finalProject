@@ -21,6 +21,10 @@ h1 {
  /*font-size: 3em;*/
 }
 
+header div ul li {
+      list-style-type: none;
+}
+
 ul {
  float: right;
  display: inline;
@@ -36,7 +40,7 @@ li  {
 }
 
 header  {
- margin-bottom: 30px;
+    margin-bottom: 30px;
 }
 
 #button {
