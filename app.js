@@ -31,6 +31,8 @@ function updatePlayerArray(playerOneOrTwo) {
   }
 }
 
+var teamRePongTheme = new Audio('img/RePongTheme.m4a');
+
 function go(event) {
   event.preventDefault();
   document.getElementById('game').style.display = 'block';
@@ -57,6 +59,7 @@ function go(event) {
   }, false);
   //////////////////////////////////////////
   MainLoop();
+  teamRePongTheme.play();
 }
 
   // return new Player(value);
