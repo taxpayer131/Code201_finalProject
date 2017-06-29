@@ -130,6 +130,12 @@ Game.prototype.update = function() {
         // collides with right paddle
         this.ball.x = this.p2.x + this.p2.width - this.ball.width;
         this.ball.y = Math.floor(this.ball.y - this.ball.vy + this.ball.vy * k);
+        if (this.keys.isPressed(40)) { // DOWN
+          this.ball.vy--;
+        }
+        if (this.keys.isPressed(38)) { // DOWN
+          this.ball.vy++;
+        }
         this.ball.vx = -this.ball.vx;
         speedUp();
         randomizeBackground();
@@ -144,6 +150,12 @@ Game.prototype.update = function() {
         // collides with the left paddle
         this.ball.x = this.p1.x + this.p1.width;
         this.ball.y = Math.floor(this.ball.y - this.ball.vy + this.ball.vy * k);
+        if (this.keys.isPressed(83)) { // DOWN
+          this.ball.vy--;
+        }
+        if (this.keys.isPressed(87)) { // DOWN
+          this.ball.vy++;
+        }
         this.ball.vx = -this.ball.vx;
         speedUp();
         randomizeBackground();
@@ -276,7 +288,7 @@ function playerCard(parent, type, id, content) {
 var game = new Game();
 
 function MainLoop() {
-  if ((game.p1.score === 1) || (game.p2.score === 1)) {
+  if ((game.p1.score === 9) || (game.p2.score === 9)) {
     console.log('returning mainloop');
     game.update();
     game.draw();
