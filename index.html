@@ -23,18 +23,22 @@
   <canvas id="game" style="display: none;"></canvas>
   <!--  -->
   <article id="start">
-    <p>To start a game of Re-Pong you must add the name of Player 1 and Player 2.  Player 1 uses key-w for up and key-s for down. Player 2 uses key-up for up and key-down for down. Once you're ready to start, just click "Play!"</p>
+    <img/>
+    <img/>
     <form id="start_game">
       <fieldset>
         <legend>Enter Player Names</legend>
-
-        <label for="playerone">Player 1: </label>
-        <input name="playerone" type="text">
-
-        <label for="playertwo">Player 2: </label>
-        <input name="playertwo" type="text">
-
+        <br>
+        <label for="playerone"></label>
+        <input name="playerone" type="text" placeholder="Player 1">
+        <!-- <img id="arrowKeysImg"src="img/P2Commands.png"/> -->
+        <label for="playertwo"></label>
+        <input name="playertwo" type="text" placeholder="Player 2">
         <button id="button" type="submit">PLAY!</button>
+        <h1>Ctrls</h1>
+        <p>P1: W and S</p>
+        <p>P2: <span>&#8673</span> and <span>&#8675</span></p>
+
       </fieldset>
     </form>
   </article>
