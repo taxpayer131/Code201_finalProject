@@ -1,194 +1,223 @@
-/**  {
- border: 1px dashed orange;
+/** {
+  border: 1px dashed orange;
 }*/
 
 body {
- font-family: 'Press Start 2P', cursive;
- background-image: url('img/barScreen.png');
- /*background-repeat: no-repeat;*/
- background-size: 1200px;
- color: white;
- width: 70%;
- margin: auto;
+  font-family: 'Press Start 2P', cursive;
+  background-image: url('img/barScreen.png');
+  background-size: 1200px;
+  color: white;
+  width: 70%;
+  margin: auto;
 }
 
 h1 {
- color: black;
- padding-left: 10px;
- text-shadow: -2px 0 #F4459E, 0 5px #38FEDF, 5px 0 #38FEDF, 0 -2px #F4459E;
- width: 50%;
- display: inline-block;
- /*font-size: 3em;*/
+  color: black;
+  padding-left: 10px;
+  text-shadow: -2px 0 #F4459E, 0 5px #38FEDF, 5px 0 #38FEDF, 0 -2px #F4459E;
+  width: 50%;
+  display: inline-block;
+  font-size: 2em;
 }
 
 ul {
- float: right;
- display: inline;
- margin-right: 10px;
+  float: right;
+  display: inline;
+  margin-right: 10px;
 }
 
 a {
- text-decoration: none;
+  text-decoration: none;
 }
 
-li  {
- line-height: 30px;
+li {
+  line-height: 20px;
 }
 
-header  {
- margin-bottom: 30px;
+header {
+  background-color: black;
+  border: 5px solid #38FEDF;
+  border-radius: 5px;
+  box-shadow: -1px 0 #F4459E, 0 3px #F4459E, 3px 0 #F4459E, 0 -1px #F4459E;
+  margin-bottom: 30px;
+}
+
+header a {
+  color: orange;
 }
 
 #button {
- display: block;
- padding: 10px 20px 10px 20px;
- border-radius: 5px;
- margin: 0 auto;
- margin-bottom: 10px;
- font-family: 'Press Start 2P', cursive;
- background-color: #3CEB1F;
- text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
- box-shadow: -1px 0 white, 0 2px white, 2px 0 white, 0 -1px white;
-}
-
-#aboutBody {
- width:80%;
- margin-left:auto;
- margin-right:auto;
+  display: block;
+  padding: 10px 20px 10px 20px;
+  border-radius: 5px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  font-family: 'Press Start 2P', cursive;
+  background-color: #3CEB1F;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+  box-shadow: -1px 0 white, 0 2px white, 2px 0 white, 0 -1px white;
 }
 
 #game {
- margin: 0 auto;
- width: 960px;
- height: 600px;
- display: block;
- background: gray;
- border: 5px solid #38FEDF;
- border-radius: 5px;
- box-shadow: -1px 0 #F4459E, 0 3px #F4459E, 3px 0 #F4459E, 0 -1px #F4459E;
+  margin: 0 auto;
+  width: 960px;
+  height: 600px;
+  display: block;
+  background: gray;
+  border: 5px solid #38FEDF;
+  border-radius: 5px;
+  box-shadow: -1px 0 #F4459E, 0 3px #F4459E, 3px 0 #F4459E, 0 -1px #F4459E;
 }
 
 span {
- font-size: 200%;
+  font-size: 200%;
 }
-#start_game {
- text-align: center;
- margin-bottom: 3px;
- margin-top: 3px;
 
+#start_game {
+  text-align: center;
+  margin-bottom: 3px;
+  margin-top: 3px;
 }
 
 #start {
- margin: auto;
- float: none;
+  margin: auto;
+  float: none;
 }
 
 label {
- display: block;
- text-align: center;
- margin-bottom: 20px;
+  display: block;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 input {
-   display: block;
-   margin: auto;
-   margin-bottom: 20px;
-}
-
-div {
- background-color: black;
- border: 5px solid #38FEDF;
- border-radius: 5px;
- margin-right: 10px;
- box-shadow: -1px 0 #F4459E, 0 3px #F4459E, 3px 0 #F4459E, 0 -1px #F4459E;
+  display: block;
+  margin: auto;
+  margin-bottom: 20px;
 }
 
 h3 {
- font-size: 100%;
- text-align: center;
+  margin: 0 auto;
+  width: 50%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 5px;
+  font-size: 50%;
+  text-align: center;
+  background-color: black;
+  border: 5px solid #38FEDF;
+  border-radius: 5px;
+  box-shadow: -1px 0 #F4459E, 0 3px #F4459E, 3px 0 #F4459E, 0 -1px #F4459E;
 }
 
 article {
- /*display: inline-block;*/
- /*margin: auto;*/
- float: left;
- width: 50%;
- margin-bottom: 20px;
- border: 5px solid #38FEDF;
- border-radius: 5px;
- box-shadow: -1px 0 #F4459E, 0 3px #F4459E, 3px 0 #F4459E, 0 -1px #F4459E;
- background-color: black;
+  float: left;
+  width: 50%;
+  margin-bottom: 20px;
+  border: 5px solid #38FEDF;
+  border-radius: 5px;
+  box-shadow: -1px 0 #F4459E, 0 3px #F4459E, 3px 0 #F4459E, 0 -1px #F4459E;
+  background-color: black;
 }
 
 #arrowKeysImg {
-   width: 6%;
-   /*display: inline;*/
-   margin-top: -5%;
-   margin-left: ;
-   position: absolute;
+  width: 6%;
+  /*display: inline;*/
+  margin-top: -5%;
+  margin-left: ;
+  position: absolute;
 }
 
 article h1 {
- color: black;
- padding-left: 10px;
- float: left;
- text-shadow: -2px 0 #F4459E, 0 5px #38FEDF, 5px 0 #38FEDF, 0 -2px #F4459E;
- width: 100%;
- display: inline-block;
+  color: black;
+  padding-left: 10px;
+  float: left;
+  text-shadow: -2px 0 #F4459E, 0 5px #38FEDF, 5px 0 #38FEDF, 0 -2px #F4459E;
+  width: 100%;
+  display: inline-block;
 }
 
 article ul {
- float: left;
+  float: left;
 }
 
 section {
- position: relative;
+  position: relative;
 }
 
 #blog {
- color: #A114F2;
- display: block;
- padding: 10px 20px 10px 20px;
- border-radius: 5px;
- margin: 0 auto;
- margin-top: 15px;
- margin-bottom: 30px;
- font-family: 'Press Start 2P', cursive;
- background-color: #3CEB1F;
- text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
- box-shadow: -1px 0 white, 0 2px white, 2px 0 white, 0 -1px white;
- font-size: 20%;
+  display: block;
+  padding: 10px 20px 10px 20px;
+  border-radius: 5px;
+  margin: 0 auto;
+  margin-top: 15px;
+  margin-bottom: 30px;
+  font-family: 'Press Start 2P', cursive;
+  background-color: #3CEB1F;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+  box-shadow: -1px 0 white, 0 2px white, 2px 0 white, 0 -1px white;
+  font-size: 40%;
 }
 
 img {
- font-family: 'Press Start 2P', cursive;
- float: left;
- padding-right: 20px;
+  font-family: 'Press Start 2P', cursive;
+  Display: inline-block;
+  padding-right: 20px;
 }
 
 button:hover {
-   color: #FF00FF;
+  color: #FF00FF;
 }
 
-a   {
- color: #FBC12F;
+a {
+  color: black;
 }
 
 p {
- font-size: 17px;
- font-weight: lighter;
- margin-top: 10px;
- margin-bottom: 30px;
+  font-size: 17px;
+  font-weight: lighter;
+  margin-top: 10px;
+  margin-bottom: 30px;
 }
 
-.aboutFont  {
- font: 20px;
- margin: 10px;
- height: 200px;
- color: #3CEB1F;
- display: block;
+.aboutFont {
+  background-color: black;
+  border: 5px solid #38FEDF;
+  border-radius: 5px;
+  box-shadow: -1px 0 #F4459E, 0 3px #F4459E, 3px 0 #F4459E, 0 -1px #F4459E;
+  margin-bottom: 10px;
+  padding: 10px;
+  font: 20px;
+  color: #3CEB1F;
+  display: block;
 }
 
-#footer   {
- color: #FBC12F;
+.aboutFont p {
+  display: inline-block;
+  width: 80%
+}
+
+#footer {
+  color: #FBC12F;
+}
+
+#playerboard article {
+  margin: 0 auto;
+  margin-bottom: 30px;
+  width: 50%;
+  height: 300px;
+  float: none;
+  display: block
+}
+
+#playerboard article button {
+  display: block;
+  padding: 10px 20px 10px 20px;
+  border-radius: 5px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  font-family: 'Press Start 2P', cursive;
+  background-color: #3CEB1F;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+  box-shadow: -1px 0 white, 0 2px white, 2px 0 white, 0 -1px white;
 }
