@@ -68,6 +68,7 @@ function renderMatches(player) {
 
 function buildLeader() {
   for (var i = 0; i < Player.all.length; i++) {
+    findNemesis(Player.all[i]);
     playerCard('playerboard', 'article', Player.all[i].name);
     playerCard(Player.all[i].name, 'h1', '', Player.all[i].name);
     playerCard(Player.all[i].name, 'ul', Player.all[i].name + '_stats');
@@ -91,6 +92,25 @@ function leaderSort() {
       }
     }
   }
+}
+
+function findNemesis(player) {
+  var nemesis;
+  var counter = 0;
+  var newCount = 0;
+  console.log('Nemesis');
+  for (var i = 0; i < player.match.length; i++) {
+    for (var j = 0; j < player.match.length; j++) {
+      if(player.match[j].opponent === player.match[i].opponent) {
+        newCount++;
+      }
+    }
+    if(newCount > counter) {
+      nemesis = player.match[i].opponent;
+      counter = newCount;
+    }
+  }
+  player.nemesis = nemesis;
 }
 
 // header();

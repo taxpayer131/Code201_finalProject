@@ -11,7 +11,7 @@ function Player(name) {
   this.totalMatches = 0;
   this.winRatio = 0;
   this.match = [];
-  this.nemesis = [];
+  this.nemesis;
   Player.all.push(this);
 }
 
@@ -20,6 +20,7 @@ function Match(winner,loser) {
   this.loser = loser;
   this.winnerScore = 9;
   this.loserScore = 0;
+  this.opponent = '';
 }
 
 function updatePlayerArray(playerOneOrTwo) {
@@ -84,10 +85,14 @@ function endResults() {
 }
 
 function matchMaker(winner,loser, loserScore) {
-  var match = new Match(winner, loser);
-  match.loserScore = loserScore;
-  Player.playerOne.match.push(match);
-  Player.playerTwo.match.push(match);
+  var matchP1 = new Match(winner, loser);
+  matchP1.opponent = Player.playerTwo.name;
+  matchP1.loserScore = loserScore;
+  Player.playerOne.match.push(matchP1);
+  var matchP2 = new Match(winner, loser);
+  matchP2.opponent = Player.playerOne.name;
+  matchP2.loserScore = loserScore;
+  Player.playerTwo.match.push(matchP2);
   lastMatch(Player.playerOne);
 }
 
