@@ -2,42 +2,7 @@
 /////GAME FUNCTIONS START/////
 ///////////CODE BY////////////
 ///////MAILSON MENEZES////////
-//////////////////////////////
-/////////////NOTE/////////////
-/////OG = ORIGINAL CODE///////
-///NC = NEW CODE BY RE-PONG///
-
-//OG
-// function Game() {
-//   var canvas = document.getElementById('game');
-//   this.width = canvas.width;
-//   this.height = canvas.height;
-//   this.context = canvas.getContext('2d');
-//   this.context.fillStyle = 'white';
-//   this.keys = new KeyListener();
-//   this.p1 = new Paddle(5, 0);
-//   this.p1.y = this.height / 2 - this.p1.height / 2;
-//   this.display1 = new Display(this.width / 4, 25);
-//   this.p2 = new Paddle(this.width - 5 - 2, 0);
-//   this.p2.y = this.height / 2 - this.p2.height / 2;
-//   this.display2 = new Display(this.width * 3 / 4, 25);
-//   this.ball = new Ball();
-//   this.ball.x = this.width / 2;
-//   this.ball.y = this.height / 2;
-//   this.ball.vy = Math.floor(Math.random() * 12 - 6);
-//   this.ball.vx = 7 - Math.abs(this.ball.vy);
-// }
-
-// Game.prototype.draw = function() {
-//   this.context.clearRect(0, 0, this.width, this.height);
-//   this.context.fillRect(this.width / 2, 0, 2, this.height);
-//   this.ball.draw(this.context);
-//   this.p1.draw(this.context);
-//   this.p2.draw(this.context);
-//   this.display1.draw(this.context);
-//   this.display2.draw(this.context);
-// };
-// Soundbank
+////Modified by Re-Pong///////
 
 //NOTE NC
 function Game() {
@@ -62,7 +27,7 @@ function Game() {
 }
 
 function speedUp() {
-  game.ball.vx = game.ball.vx * 1.05;
+  game.ball.vx = game.ball.vx * 1.04;
 }
 
 Game.prototype.draw = function() {
